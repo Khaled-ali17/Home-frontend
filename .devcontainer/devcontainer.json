@@ -1,0 +1,48 @@
+{
+  "name": "Home Assistant Frontend",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "appPort": "8124:8123",
+   "postStartCommand": "script/bootstrap",
+  //"postStartCommand": "sudo bash devcontainer_bootstrap",
+  "containerEnv": {
+    "WORKSPACE_DIRECTORY": "${containerWorkspaceFolder}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "runem.lit-plugin",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens"
+      ],
+      // "mounts": [
+      //   // Custom configuration directory
+      //   "source=C:/Users/khale/Desktop/core/path/to/config,target=${containerWorkspaceFolder}/config,type=bind"
+      // ],
+      "settings": {
+        "files.eol": "\n",
+        "editor.tabSize": 2,
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.renderWhitespace": "boundary",
+        "editor.rulers": [80],
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "files.trimTrailingWhitespace": true,
+        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+        "gitlens.showWelcomeOnInstall": false,
+        "gitlens.showWhatsNewAfterUpgrades": false,
+        "workbench.startupEditor": "none"
+      }
+    }
+  }
+}
